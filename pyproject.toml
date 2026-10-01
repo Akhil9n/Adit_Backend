@@ -2,6 +2,20 @@
 name = "cab-operations-api"
 version = "1.0.0"
 requires-python = ">=3.12"
+# Runtime dependencies (what Vercel installs). Dev/test tools are in requirements-dev.txt.
+dependencies = [
+    "fastapi>=0.115,<1.0",
+    "uvicorn[standard]>=0.30",
+    "pydantic>=2.8",
+    "pydantic-settings>=2.4",
+    "sqlalchemy>=2.0.30",
+    "alembic>=1.13",
+    "psycopg[binary]>=3.2",
+    "pyjwt[crypto]>=2.9",
+]
+
+[tool.vercel]
+entrypoint = "app.main:app"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
